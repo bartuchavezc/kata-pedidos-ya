@@ -1,0 +1,14 @@
+services:
+
+  Context.shared.EventBus.RxJsEventBus:
+    class: ../../../../context/shared/event-bus/RxJsEventBus
+    arguments: []
+
+  Context.kata-peya.application.service.UserColitionsService:
+    class: ../../../../context/kata-peya/application/service/UserColitionsService
+    arguments: ["@Context.shared.EventBus.RxJsEventBus"]
+    
+  Apps.kata-peya.controller.UserController:
+    class: ../../controller/UserController
+    arguments: ["@Context.kata-peya.application.service.UserColitionsService"]
+
